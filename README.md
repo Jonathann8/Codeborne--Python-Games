@@ -14,9 +14,6 @@ Sinta-se à vontade para clonar, explorar e contribuir. Vamos construir e jogar 
 
 ---
 
-
-Aqui está uma sugestão de descrição para o seu repositório **Codeborne: Python Games** no GitHub:
-
 ---
 
 [EN-US]
