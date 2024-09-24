@@ -12,7 +12,12 @@ x = largura/2 #Luga aonde fica o retangulo altura x largura.
 y = altura/2
 
 x_azul = randint(40, 600) #Representando a posição do retangulo azul:
-y_azul = randint(50, 430) #Dentro da função Randint, ocorre um intervalo de números, de escolha aleatória 
+y_azul = randint(50, 430) #Dentro da função Randint, ocorre um intervalo de números, de escolha aleatória
+
+ 
+pontos = 0 #Variavél pontos
+fonte = pygame.font.SysFont('arial', 40, True, True) #Inserindo Texto
+
 
 tela = pygame.display.set_mode((largura, altura)) #Criando o objeto tela, e definindo largura x altura
 pygame.display.set_caption('Primeiro game')
@@ -21,6 +26,8 @@ relogio = pygame.time.Clock()
 while True: #Criando o loop infinito.
     relogio.tick(30) #Controla o framerate
     tela.fill((0,0,0))
+    mensagem = f'Pontos: {pontos}' #Mensagem que vai aparecer na fonte
+    texto_formatado = fonte.render(mensagem, True, (255,255,255))
     for event in pygame.event.get():    #A cada interação do looping principal, checar qual evento ocorreu. (exemplo o looling tem que indentificar qual tecla apertou.)
         if event.type == QUIT: #Função para fehcar a janela do jogo.
             pygame.quit()
@@ -57,5 +64,6 @@ while True: #Criando o loop infinito.
     if ret_vermelho.colliderect(ret_azul): #Criando uma condição de colisão
         x_azul = randint(40, 600) # Toda vez que o retângulo vermelho, colidir com o retângulo azul, a variavél x e y azul, vão assumir diferentes valores, o pisição do retângulo azul, vai mudar toda vez que isso acontecer.
         y_azul = randint(50, 430)
-        
+        pontos = pontos +1 #Toda vez que houver uma colisão a variavél pontos vai receber +1
+    tela.blit(texto_formatado, (450, 40)) #Posição do texto em tela
     pygame.display.update() #A cada interação do looping principal do jogo, ela atualiza a tela do jogo
