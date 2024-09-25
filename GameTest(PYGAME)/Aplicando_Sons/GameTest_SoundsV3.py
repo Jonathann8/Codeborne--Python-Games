@@ -5,11 +5,15 @@ from random import randint
 
 pygame.init()
 
+musica_de_fundo = pygame.mixer.music.load('Musica_De_Fundo.mp3')
+pygame.mixer.music.play(-1)
+
+barulho_colisão = pygame.mixer.Sound('smw_power-up_appears.wav')
 
 largura = 640   
 altura = 480
-x = largura/2 #Luga aonde fica o retangulo altura x largura.
-y = altura/2
+x = int(largura/2) #Luga aonde fica o retangulo altura x largura.
+y = int(altura/2)
 
 x_azul = randint(40, 600) #Representando a posição do retangulo azul:
 y_azul = randint(50, 430) #Dentro da função Randint, ocorre um intervalo de números, de escolha aleatória
@@ -65,5 +69,6 @@ while True: #Criando o loop infinito.
         x_azul = randint(40, 600) # Toda vez que o retângulo vermelho, colidir com o retângulo azul, a variavél x e y azul, vão assumir diferentes valores, o pisição do retângulo azul, vai mudar toda vez que isso acontecer.
         y_azul = randint(50, 430)
         pontos = pontos +1 #Toda vez que houver uma colisão a variavél pontos vai receber +1
+        barulho_colisão.play()
     tela.blit(texto_formatado, (450, 40)) #Posição do texto em tela
     pygame.display.update() #A cada interação do looping principal do jogo, ela atualiza a tela do jogo
