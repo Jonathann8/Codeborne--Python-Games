@@ -5,11 +5,12 @@ from random import randint
 
 pygame.init()
 
+pygame.mixer.music.set_volume(0.1)
 musica_de_fundo = pygame.mixer.music.load('Musica_De_Fundo.mp3')
 pygame.mixer.music.play(-1)
 
 barulho_colisão = pygame.mixer.Sound('smw_power-up_appears.wav')
-
+barulho_colisão.set_volume(0.1)
 largura = 640   
 altura = 480
 x = int(largura/2) #Luga aonde fica o retangulo altura x largura.
