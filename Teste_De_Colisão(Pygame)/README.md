@@ -22,3 +22,4 @@ Este é um projeto simples de jogo em Python utilizando a biblioteca Pygame. O o
 - **Nome do Arquivo**: Não se esqueça de substituir `nome_do_seu_arquivo.py` pelo nome real do arquivo do seu código.
 - **Licença**: Inclua informações sobre a licença que você deseja usar, se for o caso.
 
+OBS: Os arquivos de som, estão dentro da pasta 'Aplicando_Som'.
