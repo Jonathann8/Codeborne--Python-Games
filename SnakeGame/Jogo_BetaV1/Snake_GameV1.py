@@ -25,6 +25,12 @@ fonte = pygame.font.SysFont('arial', 40, True, True)
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Primeiro game')
 relogio = pygame.time.Clock()
+lista_cobra = []
+
+def aumenta_cobra(lista_cobra):
+    for XeY in lista_cobra:
+        pygame.draw.rect(tela, (0, 255, 0), (XeY[0], XeY[1], 20, 20))
+    
 
 while True:
     relogio.tick(30)
@@ -57,5 +63,13 @@ while True:
         pontos += 1
         barulho_colisão.play()
         
+    lista_cabeca = []
+    lista_cabeca.append(x_cobra)
+    lista_cabeca.append(y_cobra)
+
+    lista_cobra.append(lista_cabeca)
+    
+    aumenta_cobra(lista_cobra)
+    
     tela.blit(texto_formatado, (450, 40))
     pygame.display.update()
