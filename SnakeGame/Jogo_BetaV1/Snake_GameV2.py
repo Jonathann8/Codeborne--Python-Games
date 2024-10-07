@@ -50,17 +50,29 @@ while True:
             
         if event.type == KEYDOWN:
             if event.key == K_a:
-                x_controle = -velocidade
-                y_controle = 0
+                if x_controle == velocidade:
+                    pass
+                else:
+                    x_controle = -velocidade
+                    y_controle = 0
             if event.key == K_d:
-                x_controle = velocidade
-                y_controle = 0
+                if x_controle == -velocidade:
+                    pass
+                else:
+                    x_controle = velocidade
+                    y_controle = 0
             if event.key == K_w:
-                y_controle = -velocidade
-                x_controle = 0
+                if y_controle == velocidade:
+                    pass
+                else:
+                    y_controle = -velocidade
+                    x_controle = 0
             if event.key == K_s:
-                y_controle = velocidade
-                x_controle = 0
+                if y_controle == -velocidade:
+                    pass
+                else:
+                    y_controle = velocidade
+                    x_controle = 0
     
     x_cobra = x_cobra + x_controle
     y_cobra = y_cobra + y_controle
