@@ -26,6 +26,7 @@ tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Primeiro game')
 relogio = pygame.time.Clock()
 lista_cobra = []
+comprimento_inicial = 5
 
 def aumenta_cobra(lista_cobra):
     for XeY in lista_cobra:
@@ -62,12 +63,16 @@ while True:
         y_maca = randint(50, 430)
         pontos += 1
         barulho_colisão.play()
+        comprimento_inicial = comprimento_inicial + 1
         
     lista_cabeca = []
     lista_cabeca.append(x_cobra)
     lista_cabeca.append(y_cobra)
 
     lista_cobra.append(lista_cabeca)
+    
+    if len(lista_cobra) > comprimento_inicial:
+        del lista_cobra[0]
     
     aumenta_cobra(lista_cobra)
     
