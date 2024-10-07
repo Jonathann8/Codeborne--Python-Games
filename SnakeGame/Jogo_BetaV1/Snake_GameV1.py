@@ -16,8 +16,10 @@ altura = 480
 x_cobra = int(largura / 2)
 y_cobra = int(altura / 2)
 
-x_controle = 20
+velocidade = 10
+x_controle = velocidade
 y_controle = 0
+
 
 x_maca = randint(40, 600)
 y_maca = randint(50, 430)
@@ -48,16 +50,16 @@ while True:
             
         if event.type == KEYDOWN:
             if event.key == K_a:
-                x_controle = - 20
+                x_controle = -velocidade
                 y_controle = 0
             if event.key == K_d:
-                x_controle = 20
+                x_controle = velocidade
                 y_controle = 0
             if event.key == K_w:
-                y_controle = - 20
+                y_controle = -velocidade
                 x_controle = 0
             if event.key == K_s:
-                y_controle = 20
+                y_controle = velocidade
                 x_controle = 0
     
     x_cobra = x_cobra + x_controle
