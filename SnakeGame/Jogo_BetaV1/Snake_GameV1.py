@@ -16,6 +16,9 @@ altura = 480
 x_cobra = int(largura / 2)
 y_cobra = int(altura / 2)
 
+x_controle = 20
+y_controle = 0
+
 x_maca = randint(40, 600)
 y_maca = randint(50, 430)
 
@@ -42,18 +45,23 @@ while True:
         if event.type == QUIT:
             pygame.quit()
             exit()
+            
+        if event.type == KEYDOWN:
+            if event.key == K_a:
+                x_controle = - 20
+                y_controle = 0
+            if event.key == K_d:
+                x_controle = 20
+                y_controle = 0
+            if event.key == K_w:
+                y_controle = - 20
+                x_controle = 0
+            if event.key == K_s:
+                y_controle = 20
+                x_controle = 0
     
-    if pygame.key.get_pressed()[K_a]:
-        x_cobra -= 20
-    
-    if pygame.key.get_pressed()[K_d]:
-        x_cobra +=  20
-        
-    if pygame.key.get_pressed()[K_w]:
-        y_cobra -= 20
-                
-    if pygame.key.get_pressed()[K_s]:
-        y_cobra += 20
+    x_cobra = x_cobra + x_controle
+    y_cobra = y_cobra + y_controle
                 
     cobra = pygame.draw.rect(tela, (0, 255, 0), (x_cobra, y_cobra, 20, 20))
     maca = pygame.draw.rect(tela, (255, 0, 0), (x_maca, y_maca, 20, 20))
